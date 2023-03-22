@@ -1,0 +1,17 @@
+.todo-item {
+  padding-bottom: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+  width: 100%;
+  text-align: left;
+  &.todo-item--completed {
+    text-decoration: line-through;
+    color: gray;
+  }
+  .todo-item__field {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}

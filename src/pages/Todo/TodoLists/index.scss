@@ -1,0 +1,17 @@
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  list-style: none;
+  max-height: 400px;
+  overflow-y: auto;
+  height: 250px;
+  padding: 0;
+  .todo-list-box {
+    width: 100%;
+  }
+  .todo-list__empty {
+    font-size: 20px;
+  }
+}
