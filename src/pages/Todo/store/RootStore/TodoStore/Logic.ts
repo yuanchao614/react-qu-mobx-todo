@@ -4,30 +4,31 @@ import { ILogic, ITodoItem } from './interface';
 import { TLoadingStore } from '../interface';
 
 import { RootStore } from '../';
-import { VISIBILITY_TYPE } from '../../../enmu'
+import { VISIBILITY_TYPE } from '../../../constains'
 export class Logic implements ILogic {
     loadingStore: TLoadingStore;
     rootStore: RootStore;
-    newId: number;
-    activeType: string;
-    allIds: number[];
+    newId: number = 0;
+    activeType: string = VISIBILITY_TYPE.ALL;
+    allIds: number[] = [];
     byIds: {
         [key: number]: ITodoItem
-    }
+    } = []
     featchData: string = ''
 
     constructor(rootStore: RootStore) {
         this.rootStore = rootStore;
         this.loadingStore = rootStore.loadingStore;
-        this.newId = 0;
-        this.activeType = VISIBILITY_TYPE.ALL;
-        this.allIds = [];
-        this.byIds = {};
+        // this.newId = 0;
+        // this.activeType = VISIBILITY_TYPE.ALL;
+        // this.allIds = [];
+        // this.byIds = {};
         this.onTest = withRequest(this.onTest, 'loading')
 
         makeAutoObservable(this, {}, { autoBind: true });
     }
 
+    // 添加Todo
     addTodo(content: string) {
         this.allIds = [
             ...this.allIds,
@@ -40,10 +41,12 @@ export class Logic implements ILogic {
         this.newId += 1
     }
 
+    // Todo状态切换
     toggleTodo(id: number) {
         this.byIds[id].completed = !this.byIds[id].completed
     }
 
+    // 根据状态筛选Todo
     filterTodos(type: string) {
         this.activeType = type
     }
@@ -59,20 +62,6 @@ export class Logic implements ILogic {
             this.featchData = res || ''
         })
     }
-
-
-    // todos() {
-    //     const todos = this.allIds.map(id => ({
-    //         ...this.byIds[id],
-    //         id
-    //     }))
-
-    //     switch (this.activeType) {
-    //         case VISIBILITY_TYPE.COMPLETED: return todos.filter(item => item.completed)
-    //         case VISIBILITY_TYPE.INCOMPLETED: return todos.filter(item => !item.completed)
-    //         default: return todos
-    //     }
-    // }
 
 }
     

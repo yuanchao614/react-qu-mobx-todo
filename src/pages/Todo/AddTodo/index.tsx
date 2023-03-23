@@ -20,7 +20,7 @@ const AddTodo = () => {
 
   return(
    <div className="add-todo">
-      <input type="text" placeholder="请输入" className="add-todo__field" value={inputValue} onChange={(e) => hanldInputChange(e.target.value)} />
+      <input type="text" placeholder="请输入你想要做的事" className="add-todo__field" value={inputValue} onChange={(e) => hanldInputChange(e.target.value)} />
       <button className="add-todo__button" onClick={clickAddTodo}>Add Todo</button>
    </div>
   )
