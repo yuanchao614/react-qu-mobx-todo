@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import cx from "classnames";
-import { VISIBILITY_TYPE, TVisibilityType } from '../enmu'
+import { VISIBILITY_TYPE, TVisibilityType } from '../constains'
 import { useStore } from "../store/RootStore";
 import { observer } from "@quarkunlimit/qu-mobx";
 import './index.scss'

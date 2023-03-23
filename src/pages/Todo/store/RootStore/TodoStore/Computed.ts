@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "@quarkunlimit/qu-mobx";
 import { IComputed } from "./interface";
 import { RootStore } from "../";
-import { VISIBILITY_TYPE } from "../../../enmu";
+import { VISIBILITY_TYPE } from "../../../constains";
 
 export class Computed implements IComputed {
   rootStore: RootStore;
@@ -10,6 +10,7 @@ export class Computed implements IComputed {
     makeAutoObservable(this, {}, { autoBind: true });
   }
 
+  // 获取todos数据
   get todos() {
     const { allIds, byIds, activeType } = this.rootStore.todoStore.logic;
     const todos = allIds.map((id) => ({
@@ -27,6 +28,7 @@ export class Computed implements IComputed {
     }
   }
 
+  // 获取异步请求状态
   get loading() {
     console.log(`状态${this.rootStore.loadingStore.get('loading')}`)
     return this.rootStore.loadingStore.get('loading')

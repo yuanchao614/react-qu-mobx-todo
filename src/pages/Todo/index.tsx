@@ -10,21 +10,23 @@ interface IProps {
 }
 
 const Todo = observer((props: IProps) => {
-  console.log(props);
+  // console.log(props);
   const root = useStore()
   const { todoStore } = root
 
-  useSyncProps<IProps>(root, ['testMsg'], props); // 将props数据传到指定store
+  // 将props数据传到指定store
+  useSyncProps<IProps>(root, ['testMsg'], props);
   const loading = todoStore.computed.loading
 
   
+  // 测试qu-mobx异步获取数据
   useEffect(() => {
     todoStore.logic.onTest()
   }, [])
 
 
   return <div className="todo-page">
-    <h2>{props.testMsg}</h2>
+    <h2 style={{textAlign: 'center'}}>{props.testMsg}</h2>
     {/* {
       !loading ? (<h3>{todoStore.logic.featchData ?? 'loading'}</h3>) : <span>loading...</span>
     } */}
