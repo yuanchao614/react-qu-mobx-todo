@@ -24,9 +24,10 @@ const Todo = observer((props: IProps) => {
 
 
   return <div className="todo-page">
-    {
+    <h2>{props.testMsg}</h2>
+    {/* {
       !loading ? (<h3>{todoStore.logic.featchData ?? 'loading'}</h3>) : <span>loading...</span>
-    }
+    } */}
     <AddTodo />
     <TodoLists />
     <VisibilityFilters />

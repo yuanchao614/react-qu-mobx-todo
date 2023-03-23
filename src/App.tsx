@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <TodoPage testMsg={'12333'} />
+      <TodoPage testMsg={'Todo App'} />
     </div>
   )
 }
