@@ -15,8 +15,8 @@ jobs:
       uses: actions/setup-node@v2   
       with:
         node-version: '16.14'
-        cache: 'yarn'
-        cache-dependency-path: '**/yarn.lock'
+#         cache: 'yarn'
+#         cache-dependency-path: '**/yarn.lock'
     # 缓存 有需求能够敞开 一起 setu node 也能够进行缓存1
     # - name: yarn cache
     #   id: yarn-cahce-dir-path
