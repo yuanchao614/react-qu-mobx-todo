@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: build-pages
-        path: react-qu-mobx-todo/dist/
+        path: index.html
         retention-days: 1
   Deploy: 
     needs: Build # 确保build 阶段完结
@@ -46,7 +46,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-pages
-          path: react-qu-mobx-todo/dist/
+          path: index.html
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:
